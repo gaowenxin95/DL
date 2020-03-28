@@ -1,5 +1,5 @@
 ---
-title: EDA笔记
+title: 深度学习相关笔记
 author: 高文欣
 date: "`r Sys.Date()`"
 output: 
