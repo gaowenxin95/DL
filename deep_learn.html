@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>EDA笔记</title>
+  <meta name="description" content="EDA笔记" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="EDA笔记" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="EDA笔记" />
+  
+  
+  
+
+<meta name="author" content="高文欣" />
+
+
+<meta name="date" content="2020-03-28" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/viz-1.8.2/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-1.0.5/grViz.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path=""><a href="#深度学习笔记"><i class="fa fa-check"></i><b>1</b> 深度学习笔记</a></li>
+<li class="chapter" data-level="2" data-path=""><a href="#神经网络"><i class="fa fa-check"></i><b>2</b> 神经网络</a><ul>
+<li class="chapter" data-level="2.1" data-path=""><a href="#神经网络-1"><i class="fa fa-check"></i><b>2.1</b> 神经网络</a></li>
+<li class="chapter" data-level="2.2" data-path=""><a href="#激活函数"><i class="fa fa-check"></i><b>2.2</b> 激活函数</a></li>
+<li class="chapter" data-level="2.3" data-path=""><a href="#普通神经网络的缺陷"><i class="fa fa-check"></i><b>2.3</b> 普通神经网络的缺陷</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path=""><a href="#rnn"><i class="fa fa-check"></i><b>3</b> RNN</a><ul>
+<li class="chapter" data-level="3.1" data-path=""><a href="#rnn的几种形式"><i class="fa fa-check"></i><b>3.1</b> RNN的几种形式</a></li>
+<li class="chapter" data-level="3.2" data-path=""><a href="#encoder-decoder"><i class="fa fa-check"></i><b>3.2</b> Encoder-Decoder</a></li>
+<li class="chapter" data-level="3.3" data-path=""><a href="#双向循环神经网络"><i class="fa fa-check"></i><b>3.3</b> 双向循环神经网络</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path=""><a href="#lstm"><i class="fa fa-check"></i><b>4</b> LSTM</a><ul>
+<li class="chapter" data-level="4.1" data-path=""><a href="#遗忘门"><i class="fa fa-check"></i><b>4.1</b> 遗忘门</a></li>
+<li class="chapter" data-level="4.2" data-path=""><a href="#传输门"><i class="fa fa-check"></i><b>4.2</b> 传输门</a></li>
+<li class="chapter" data-level="4.3" data-path=""><a href="#单元状态"><i class="fa fa-check"></i><b>4.3</b> 单元状态</a></li>
+<li class="chapter" data-level="4.4" data-path=""><a href="#输出门"><i class="fa fa-check"></i><b>4.4</b> 输出门</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path=""><a href="#gru"><i class="fa fa-check"></i><b>5</b> GRU</a><ul>
+<li class="chapter" data-level="5.1" data-path=""><a href="#更新门"><i class="fa fa-check"></i><b>5.1</b> 更新门</a></li>
+<li class="chapter" data-level="5.2" data-path=""><a href="#重置门"><i class="fa fa-check"></i><b>5.2</b> 重置门</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path=""><a href="#cnn"><i class="fa fa-check"></i><b>6</b> CNN</a></li>
+<li class="chapter" data-level="7" data-path=""><a href="#transformer"><i class="fa fa-check"></i><b>7</b> Transformer</a></li>
+<li class="chapter" data-level="8" data-path=""><a href="#参考文献"><i class="fa fa-check"></i><b>8</b> 参考文献</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">EDA笔记</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">EDA笔记</h1>
+<p class="author"><em>高文欣</em></p>
+<p class="date"><em>2020-03-28</em></p>
+</div>
+<div id="深度学习笔记" class="section level1">
+<h1><span class="header-section-number">1</span> 深度学习笔记</h1>
+<p>度学习这四字听起来颇为高大上，但其理念却非常简单，就是传统的神经网络发展到了多隐藏层的情况。</p>
+<p>1.多隐层的神经网络具有优异的特征学习能力，学习得到的特征对数据有更本质的刻画，从而有利于可视化或分类；</p>
+<p>2.深度神经网络在训练上的难度，可以通过“逐层初始化” 来有效克服。</p>
+<p>机器学习也好，深度学习也好，就是找到输入到输出的一种关系，而这个关系就是模型。我们期望模型越精确越好。<strong>因此深度学习算法是来发现良好特征的</strong></p>
+<p><strong>模式识别</strong></p>
+<blockquote>
+<p>模式识别=机器学习。两者的主要区别在于前者是从工业界发展起来的概念，后者则主要源自计算机学科。在著名的《Pattern Recognition And Machine Learning》这本书中，Christopher M. Bishop在开头是这样说的“模式识别源自工业界，而机器学习来自于计算机学科。不过，它们中的活动可以被视为同一个领域的两个方面，同时在过去的10年间，它们都有了长足的发展”。</p>
+</blockquote>
+<p><strong>数据挖掘</strong></p>
+<blockquote>
+<p>数据挖掘=机器学习+数据库。这几年数据挖掘的概念实在是太耳熟能详。几乎等同于炒作。但凡说数据挖掘都会吹嘘数据挖掘如何如何，例如从数据中挖出金子，以及将废弃的数据转化为价值等等。但是，我尽管可能会挖出金子，但我也可能挖的是“石头”啊。这个说法的意思是，数据挖掘仅仅是一种思考方式，告诉我们应该尝试从数据中挖掘出知识，但不是每个数据都能挖掘出金子的，所以不要神话它。一个系统绝对不会因为上了一个数据挖掘模块就变得无所不能(这是IBM最喜欢吹嘘的)，恰恰相反，一个拥有数据挖掘思维的人员才是关键，而且他还必须对数据有深刻的认识，这样才可能从数据中导出模式指引业务的改善。大部分数据挖掘中的算法是机器学习的算法在数据库中的优化。</p>
+</blockquote>
+<p><strong>统计学习</strong></p>
+<blockquote>
+<p>统计学习近似等于机器学习。统计学习是个与机器学习高度重叠的学科。因为机器学习中的大多数方法来自统计学，甚至可以认为，统计学的发展促进机器学习的繁荣昌盛。例如著名的支持向量机算法，就是源自统计学科。但是在某种程度上两者是有分别的，这个分别在于：统计学习者重点关注的是统计模型的发展与优化，偏数学，而机器学习者更关注的是能够解决问题，偏实践，因此机器学习研究者会重点研究学习算法在计算机上执行的效率与准确性的提升。</p>
+</blockquote>
+<p><strong>计算机视觉</strong></p>
+<blockquote>
+<p>计算机视觉=图像处理+机器学习。图像处理技术用于将图像处理为适合进入机器学习模型中的输入，机器学习则负责从图像中识别出相关的模式。计算机视觉相关的应用非常的多，例如百度识图、手写字符识别、车牌识别等等应用。这个领域是应用前景非常火热的，同时也是研究的热门方向。随着机器学习的新领域深度学习的发展，大大促进了计算机图像识别的效果，因此未来计算机视觉界的发展前景不可估量。</p>
+</blockquote>
+<p><strong>语音识别</strong></p>
+<p>语音识别=语音处理+机器学习。语音识别就是音频处理技术与机器学习的结合。语音识别技术一般不会单独使用，一般会结合自然语言处理的相关技术。目前的相关应用有苹果的语音助手siri等。</p>
+<p><strong>自然语言处理</strong></p>
+<blockquote>
+<p>自然语言处理=文本处理+机器学习。自然语言处理技术主要是让机器理解人类的语言的一门领域。在自然语言处理技术中，大量使用了编译原理相关的技术，例如词法分析，语法分析等等，除此之外，在理解这个层面，则使用了语义理解，机器学习等技术。作为唯一由人类自身创造的符号，自然语言处理一直是机器学习界不断研究的方向。按照百度机器学习专家余凯的说法“听与看，说白了就是阿猫和阿狗都会的，而只有语言才是人类独有的”。如何利用机器学习技术进行自然语言的的深度理解，一直是工业和学术界关注的焦点。</p>
+</blockquote>
+</div>
+<div id="神经网络" class="section level1">
+<h1><span class="header-section-number">2</span> 神经网络</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(DiagrammeR)</a></code></pre></div>
+<pre><code>## Warning: package &#39;DiagrammeR&#39; was built under R version 3.6.3</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">grViz</span>(<span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="st">digraph RmarkDown {</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="st">graph [rankdir = LR]</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="st">node [shape=rectangle</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="st">  style=filled</span></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="st">  color=blue</span></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="st">  fillcolor=salmon</span></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="st">  fontcolor=white</span></a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="st">  arrowcolor=red</span></a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="st">  alpha=55</span></a>
+<a class="sourceLine" id="cb3-11" title="11"><span class="st">  fontname = &#39;微软雅黑&#39;]</span></a>
+<a class="sourceLine" id="cb3-12" title="12"><span class="st">edge [color = grey]</span></a>
+<a class="sourceLine" id="cb3-13" title="13"><span class="st">&#39;感知机&#39; -&gt; &#39;神经网络&#39;</span></a>
+<a class="sourceLine" id="cb3-14" title="14"><span class="st">&#39;神经网络&#39; -&gt; &#39;超大型神经网络&#39;</span></a>
+<a class="sourceLine" id="cb3-15" title="15"><span class="st">    }</span></a>
+<a class="sourceLine" id="cb3-16" title="16"><span class="st">    &quot;</span>, <span class="dt">width=</span><span class="dv">600</span>)</a></code></pre></div>
+<div id="htmlwidget-d13a32916e8c09674995" style="width:600px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d13a32916e8c09674995">{"x":{"diagram":"\ndigraph RmarkDown {\ngraph [rankdir = LR]\nnode [shape=rectangle\n  style=filled\n  color=blue\n  fillcolor=salmon\n  fontcolor=white\n  arrowcolor=red\n  alpha=55\n  fontname = \"微软雅黑\"]\nedge [color = grey]\n\"感知机\" -> \"神经网络\"\n\"神经网络\" -> \"超大型神经网络\"\n    }\n    ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>一个神经网络的完整结构</p>
+<p>输入层：可以简单的理解为输入样本的地方
+隐藏层：若是看成黑盒就变成自动调参过程，若不是黑盒可以理解为每个隐藏层就是一个特征代表层，上一个隐藏层的输入就变成了下一个隐藏层的输出。
+输出层</p>
+<p><strong>分类器</strong></p>
+<p>就是输入一堆数值，输出一堆好的类别，也是数值，训练分类器的目的是为了让分类结果更加准确。所以一开始输入一些带类别的样本训练分类器，训练好的分类器就可以在新的特征向量上分类了。</p>
+<p><strong>神经元</strong></p>
+<p>比如说有一堆，要求输出0代表cat，1代表dog，如何分开这两个特征向量呢？简单粗暴中间一刀切，直线左边是dog，右边是cat。此时就训练好一个线性分类器了，以后来了新的样本就看落在直线的哪边就好了。</p>
+<p>所以你品，你细品。一个直线可以把一个平面一分为二，一个平面可以把一个三维空间一分为二，。。。，一个n-1维超平面可以把n维空间一分为二。这个就是拿二分类举个栗子。</p>
+<p>一个直线<span class="math inline">\(ax+by=0\)</span>判断一个样本<span class="math inline">\((x_0,y_0)\)</span>在直线的哪一侧，就带入结果看大于0，还是小于0就好了。把这个式子推广到<span class="math inline">\(n\)</span>维空间，直线的高维形式成为超平面。</p>
+<p>方程式:<span class="math display">\[h=a_{1} x_{1}+a_{2} x_{2}+\ldots+a_{n} x_{n}+a_{0}=0\]</span></p>
+<p>神经元就是h&gt;0输出1，h&lt;0输出0这么一个模型，实质就是把空间一分两半，两半分属两个类别。</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figs/01.png&quot;</span>)</a></code></pre></div>
+<p><img src="figs/01.png" width="399" /></p>
+<p>但是计算机是不知道如何给一个神经元去分类的，因此是先随机选一个直线或者一个超平面，然后把样本一个一个拿过来，如果这个直线分错了说明这个点分错了，那就把直线稍微移动一点，知道把它分对，换句话说就是神经元一直在“跳舞”，最终跳到可以正确分类的那侧。</p>
+<div id="神经网络-1" class="section level2">
+<h2><span class="header-section-number">2.1</span> 神经网络</h2>
+<p>神经元不可微，不好分析，于是引入sigmoid函数变成可导的，于是就有了梯度下降进行训练神经网络了，这就是反向传播算法。</p>
+<p>神经元最大的特点就是只能一刀切。但是下图没办法切一刀就分</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figs/02.png&quot;</span>)</a></code></pre></div>
+<p><img src="figs/02.png" width="404" />
+于是就有了神经网络，底层神经元的输出是高层神经元的输入，比如可以横一刀，竖一刀，然后合并左上右下。。。与右上左下就分开了，或者。。。</p>
+<p>每砍一刀就是一个神经元，把砍下的半平面做交，并处理就是把这些神经元的输入当作下一个神经元的输出，即后面再接一个神经元。<strong>所以说只要足够多的刀，把结果拼在一起，什么奇怪边界的神经网络的结果都能表示</strong>，所以说神经网络就是一个复杂的函数（空间）</p>
+<p>但是神经网络能否摆在正确的位置，还要看样本初始值的设置，样本容量和分布。</p>
+<blockquote>
+<p>神经网络神奇的地方在于它的每一个组件非常简单一把空间切一刀+某种激活函数(0-1阶跃、
+sigmoid、max-pooling),但是可以一层一层级联。输入向量连到许多神经元上,这些神经元的输出又连到一-堆神经元上,这一过程可以重复很多次。</p>
+</blockquote>
+<p>这和人脑中的神经元很相似:每一个神经元都有一些神经元作为其输入，又是另一-些神经元的输入,数值向量就像是电信号，在不同神经元之间传导，每一个神经元只有满足了某种条件才会发射信号到下一层神经元。</p>
+<p><strong>反向传播</strong></p>
+<blockquote>
+<p>神经网络的训练依靠反向传播算法:最开始输入层输入特征向量,网络层层计算获得输出，输出层发现输出和正确的类号不一样,这时它就让最后一层神经元进行参数调整，最后一层神经元不仅自己调整参数，还会勒令连接它的倒数第二层神经元调整，层层往回退着调整。经过调整的网络会在样本_上继续测试，如果输出还是老分错，继续来-轮回退调整，直到网络输出满意为止。</p>
+</blockquote>
+<p>简单一点说就是来回利用梯度下降进行训练。</p>
+<p>其实神经网络内部的时间就是再空间里不断的对输入向量做</p>
+<ul>
+<li>降维/升维</li>
+<li>放大/缩小</li>
+<li>旋转</li>
+<li>平移</li>
+<li>弯曲</li>
+</ul>
+<p>比如这个栗子：</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figs/03.png&quot;</span>)</a></code></pre></div>
+<p><img src="figs/03.png" width="510" /></p>
+<p><strong>深度学习的三个步骤</strong></p>
+<ul>
+<li>找一组合适的函数</li>
+<li>评价函数好坏</li>
+<li>择优</li>
+</ul>
+</div>
+<div id="激活函数" class="section level2">
+<h2><span class="header-section-number">2.2</span> 激活函数</h2>
+<p><strong>softmax</strong></p>
+<p>softmax 的作用是把 一个序列变成概率。概率就是0-1之间的。神经网络的输出层函数。</p>
+<p><span class="math display">\[S(\mathbf{a}):\left[\begin{array}{c}a_{1} \\ a_{2} \\ \dots \\ a_{N}\end{array}\right] \rightarrow\left[\begin{array}{c}S_{1} \\ S_{2} \\ \cdots \\ S_{N}\end{array}\right]\]</span></p>
+<p>作用</p>
+<p>所有的值都是 [0, 1] 之间的（因为概率必须是 [0, 1]）
+所有的值加起来等于 1</p>
+<p>这里先了解一下大概的意思，后面继续推蛤。</p>
+</div>
+<div id="普通神经网络的缺陷" class="section level2">
+<h2><span class="header-section-number">2.3</span> 普通神经网络的缺陷</h2>
+<blockquote>
+<p>随着神经网络层数的加深，优化函数越来越容易陷入局部最优解，并且这个“陷阱”越来越偏离真正的全局最优。利用有限数据训练的深层网络，性能还不如较浅层网络。同时，另一个不可忽略的问题是随着网络层数增加，“梯度消失”现象更加严重。具体来说，我们常常使用sigmoid作为神经元的输入输出函数。对于幅度为1的信号，在BP反向传播梯度时，每传递一层，梯度衰减为原来的0.25。层数一多，梯度指数衰减后低层基本上接受不到有效的训练信号。<span class="citation">(<span class="citeproc-not-found" data-reference-id="zhihu"><strong>???</strong></span>)</span></p>
+</blockquote>
+<blockquote>
+<p>分类模型本质上是在做拟合——模型其实就是一个函数（或者一簇函数），里边有一些待定的参数，根据已有的数据，确定损失函数（最常见的损失函数，就是误差平方和，不清楚的读者，可以回忆最小二乘法的过程。），然后优化损失函数到尽可能小，从而求出待定参数值。求出参数值之后，就可以用这个函数去进行一些预测。这便是分类的基本思想了，至于防止过拟合之类的，属于细节问题，在此先不作讨论。<span class="citation">(<span class="citeproc-not-found" data-reference-id="机器分类"><strong>???</strong></span>)</span></p>
+</blockquote>
+<p>以上思想看上去简单，但是存在两个本质性的、难以解决的问题：1、函数的自变量是什么？2、这个函数是什么？换句话说，我怎么知道哪些东西（特征）对我想要的分类工作有帮助？其次，复杂的非线性的现象无处不在，找到这些特征后，我怎么知道用哪个函数去拟合它？事实上，这两个问题至今没有很好的答案。在深度学习出现以前，模型和特征的选取，基本都是人工选择的。换句话说，机器学习领域发展了几十年，却连两个本质性的问题都没有解决！<span class="citation">(<span class="citeproc-not-found" data-reference-id="机器分类"><strong>???</strong></span>)</span></p>
+<p>深度学习的出现，给这两个问题的解决带来了较大的希望。深度学习的基础，便是神经网络<span class="citation">(<span class="citeproc-not-found" data-reference-id="机器分类"><strong>???</strong></span>)</span></p>
+<blockquote>
+<p>神经网络解决的是第二个问题：这个函数是什么。神经网络就是通过多重复合函数来拟合的！<span class="citation">(<span class="citeproc-not-found" data-reference-id="机器分类"><strong>???</strong></span>)</span></p>
+</blockquote>
+<blockquote>
+<p>深度学习致力于解决的是我们前面提到的第一个问题：函数的自变量是什么？
+换句话说，深度学习的算法是用来发现良好的特征的，而这部分工作，以前通常都只是靠人工来选取，而且选取的效果不一定“良好”。现在，机器能够自动（无监督地）完成这个事情，实现的效果还不比人工选取的差。找到了良好的特征，甚至线性模型都可以有不错的表现。所以，才说深度学习将人工智能领域推进了一大步，称“深度学习”为目前最接近人工智能的算法。<span class="citation">(<span class="citeproc-not-found" data-reference-id="机器分类"><strong>???</strong></span>)</span></p>
+</blockquote>
+</div>
+</div>
+<div id="rnn" class="section level1">
+<h1><span class="header-section-number">3</span> RNN</h1>
+<p>循环神经网络</p>
+<p>图来自<span class="citation">(<span class="citeproc-not-found" data-reference-id="zhihu"><strong>???</strong></span>)</span></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figs/05.png&quot;</span>)</a></code></pre></div>
+<p><img src="figs/05.png" width="478" /></p>
+<p>可以看出神经元的输出可以下一个时间索引直接作用回到自身，也就是hide层增加了互联</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figs/04.png&quot;</span>)</a></code></pre></div>
+<p><img src="figs/04.png" width="508" /></p>
+<p>可以看出t+1时刻的输出结果<span class="math inline">\(o_{t+1}\)</span>是由该时刻的输入和历史的输入共同作用的，换句话说就是很好的吸收了历史信息。<span class="citation">(<span class="citeproc-not-found" data-reference-id="zhihu"><strong>???</strong></span>)</span></p>
+<blockquote>
+<p>是自然语言这样的序列信息，是一个一维的结构，RNN就是专门针对这些序列的结构而设计的，通过各种门的操作，使得序列前后的信息互相影响，从而很好地捕捉序列的特征。<span class="citation">(<span class="citeproc-not-found" data-reference-id="深度学习笔记"><strong>???</strong></span>)</span></p>
+</blockquote>
+<blockquote>
+<p>RNN可以看成一个<strong>在时间上传递的神经网络</strong>，它的深度是时间的长度!正如我们上面所说，“梯度消失” 现象又要出现了，只不过这次发生在时间轴上。对于t时刻来说，它产生的梯度在时间轴上向历史传播几层之后就消失了，根本就无法影响太遥远的过去。因此，之前说“所有历史”共同作用只是理想的情况，在实际中，这种影响也就只能维持若千个时间戳。因此待优化。</p>
+</blockquote>
+<blockquote>
+<p>RNN受到短期记忆的影响。如果序列很长，他们将很难将信息从较早的时间步传送到后面的时间步。因此，如果你尝试处理一段文本进行预测，RNN可能会遗漏开头的重要信息</p>
+</blockquote>
+<p>RNN梯度消失和下降的原因<a href="https://zhuanlan.zhihu.com/p/28687529">知乎专栏</a></p>
+<p><strong>序列特征</strong></p>
+<p>所谓序列，指的是一块可存放多个值的连续内存空间，这些值按一定顺序排列，可通过每个值所在位置的编号（称为索引）访问它们。</p>
+<p>为了更形象的认识序列，可以将它看做是一家旅店，那么店中的每个房间就如同序列存储数据的一个个内存空间，每个房间所特有的房间号就相当于索引值。也就是说，通过房间号（索引）我们可以找到这家旅店（序列）中的每个房间（内存空间）</p>
+<p>再比如时间序列就是一个序列特征</p>
+<p><strong>RNN存在的两个问题</strong></p>
+<p>RNN有两个很明显的问题</p>
+<ul>
+<li>效率问题：需要逐个词进行处理，后一个词要等到前一个词的隐状态输出以后才能开始处理</li>
+<li>如果传递距离过长还会有梯度消失、梯度爆炸和遗忘问题为了缓解传递间的梯度和遗忘问题，设计了各种各样的RNNcell，最著名的两个就是LSTM和GRU了.</li>
+</ul>
+<div id="rnn的几种形式" class="section level2">
+<h2><span class="header-section-number">3.1</span> RNN的几种形式</h2>
+<ol style="list-style-type: decimal">
+<li>输入的序列和输出序列是等长的，这是比较经典的RNN，适用范围比较小。</li>
+</ol>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figs/09.png&quot;</span>)</a></code></pre></div>
+<p><img src="figs/09.png" width="568" /></p>
+<ol style="list-style-type: decimal">
+<li>输入的是序列，输出的是一个值，也就是在最后一个隐藏层加上一个输出变换就行了。</li>
+</ol>
+<blockquote>
+<p>这种结构通常用来处理序列分类问题。如输入一段文字判别它所属的类别，输入一个句子判断其情感倾向，输入一段视频并判断它的类别等等。[@]</p>
+</blockquote>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figs/10.png&quot;</span>)</a></code></pre></div>
+<p><img src="figs/10.png" width="536" /></p>
+<ol style="list-style-type: decimal">
+<li>输入不是序列而输出为序列</li>
+</ol>
+<p>我们可以只在序列开始进行输入计算,或者把x作为每一个阶段的输入</p>
+<blockquote>
+<p>输入的X就是图像的特征，而输出的y序列就是一段句</p>
+</blockquote>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figs/11.png&quot;</span>)</a></code></pre></div>
+<p><img src="figs/11.png" width="540" /></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figs/12.png&quot;</span>)</a></code></pre></div>
+<p><img src="figs/12.png" width="566" /></p>
+</div>
+<div id="encoder-decoder" class="section level2">
+<h2><span class="header-section-number">3.2</span> Encoder-Decoder</h2>
+<p>编码+解码</p>
+<blockquote>
+<p>原始的N vs N RNN要求序列等长，然而我们遇到的大部分问题序列都是不等长的，如机器翻译中，源语言和目标语言的句子往往并没有相同的长度。</p>
+</blockquote>
+</div>
+<div id="双向循环神经网络" class="section level2">
+<h2><span class="header-section-number">3.3</span> 双向循环神经网络</h2>
+<p>RNN可以利用历史信息，自然也可以利用未来的信息—&gt;双向RNN</p>
+</div>
+</div>
+<div id="lstm" class="section level1">
+<h1><span class="header-section-number">4</span> LSTM</h1>
+<p>长短时记忆循环网络
+通过门的开关实现时间上的记忆功能，并防止梯度消失</p>
+<blockquote>
+<p>长短期记忆（Long short-term memory, LSTM）是一种特殊的RNN，主要是为了解决长序列训练过程中的梯度消失和梯度爆炸问题。简单来说，就是相比普通的RNN，LSTM能够在更长的序列中有更好的表现。通过门控状态来控制传输状态，记住需要长时间记忆的，忘记不重要的信息；而不像普通的RNN那样只能够“呆萌”地仅有一种记忆叠加方式。对很多需要“长期记忆”的任务来说，尤其好用。<span class="citation">(<span class="citeproc-not-found" data-reference-id="深度学习234"><strong>???</strong></span>)</span></p>
+</blockquote>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figs/06.png&quot;</span>)</a></code></pre></div>
+<p><img src="figs/06.png" width="246" /></p>
+<p>来一个更直观的图<span class="citation">(<span class="citeproc-not-found" data-reference-id="深度学习234"><strong>???</strong></span>)</span></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figs/07.png&quot;</span>)</a></code></pre></div>
+<p><img src="figs/07.png" width="522" /></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figs/08.png&quot;</span>)</a></code></pre></div>
+<p><img src="figs/08.png" width="527" /></p>
+<blockquote>
+<p>LSTM的核心概念是单元状态（cellstate），它是多种不同的门。单元状态充当传输的高速公路，在序列链中传递相关信息。你可以将其视为<strong>网络的记忆</strong>。理论上，单元状态可以在序列的整个处理过程中携带相关信息。因此，即使来自较早时间步的信息也可用于较晚时间步，从而减少短期记忆的影响。随着单元状态继续进行，信息通过门被添加或移除到单元状态。门是不同的神经网络，用来决定哪些信息可以允许进入单元状态。在训练中，门可以知道哪些信息是需要保存或忘记的。</p>
+</blockquote>
+<div id="遗忘门" class="section level2">
+<h2><span class="header-section-number">4.1</span> 遗忘门</h2>
+<p>forget gate
+决定应丢弃或保留哪些信息。来自先前隐藏状态和来自当前输入的信息通过sigmoid函数传递。值介于0和1之间。越接近0越容易遗忘，越接近1则意味着要保留。</p>
+</div>
+<div id="传输门" class="section level2">
+<h2><span class="header-section-number">4.2</span> 传输门</h2>
+<blockquote>
+<p>要更新单元状态，我们需要输入门。首先，我们将先前的隐藏状态和当前输入传递给sigmoid函数。这决定了通过将值转换为0到1来更新哪些值。0表示不重要，1表示重要。你还将隐藏状态和当前输入传递给tanh函数，将它们压缩到-1和1之间以帮助调节网络。然后将tanh输出与sigmoid输出相乘。sigmoid输出将决定哪些信息很重要，需要tanh输出保存。</p>
+</blockquote>
+</div>
+<div id="单元状态" class="section level2">
+<h2><span class="header-section-number">4.3</span> 单元状态</h2>
+<blockquote>
+<p>现在我们有足够的信息来计算单元状态。首先，单元状态逐点乘以遗忘向量。如果它乘以接近0的值，则有可能在单元状态中丢弃值。然后我们从输入门获取输出并进行逐点加法，将单元状态更新为神经网络发现相关的新值。这就得到了新的单元状态。</p>
+</blockquote>
+</div>
+<div id="输出门" class="section level2">
+<h2><span class="header-section-number">4.4</span> 输出门</h2>
+<blockquote>
+<p>最后我们有输出门。输出门决定下一个隐藏状态是什么。请记住，隐藏状态包含有关先前输入的信息。隐藏状态也用于预测。首先，我们将先前的隐藏状态和当前输入传递给sigmoid函数。然后我们将新的单元状态传递给tanh函数。将tanh输出与sigmoid输出相乘，以决定隐藏状态应携带的信息。它的输出是隐藏状态。然后将新的单元状态和新的隐藏状态传递到下一个时间步。</p>
+</blockquote>
+<p><strong>遗忘门决定了哪些内容与前面的时间步相关。输入门决定了从当前时间步添加哪些信息。输出门决定下一个隐藏状态应该是什么</strong></p>
+<p>双向LSTM</p>
+</div>
+</div>
+<div id="gru" class="section level1">
+<h1><span class="header-section-number">5</span> GRU</h1>
+<p>同LSTM的作用是一样的
+只不过只有两个门</p>
+<div id="更新门" class="section level2">
+<h2><span class="header-section-number">5.1</span> 更新门</h2>
+<p>更新门的作用类似于LSTM的遗忘和输入门。它决定要丢弃哪些信息和要添加哪些新信息。</p>
+</div>
+<div id="重置门" class="section level2">
+<h2><span class="header-section-number">5.2</span> 重置门</h2>
+<p>重置门是另一个用来决定要忘记多少过去的信息的门。</p>
+<p>这就是GRU。GRU的张量操作较少；因此，他们的训练速度要比LSTM快一些。但还说不清哪个更好。研究人员和工程师通常都会尝试，以确定哪一个更适合他们的用例。</p>
+</div>
+</div>
+<div id="cnn" class="section level1">
+<h1><span class="header-section-number">6</span> CNN</h1>
+<p>卷积神经网络
+视觉用的CNN比较多</p>
+<blockquote>
+<p>做图像识别，对象是图片，是一个二维的结构，于是人们发明了CNN这种神奇的模型来提取图片的特征。CNN的核心在于它的kernel，kernel是一个个小窗口，在图片上平移，通过卷积的方式来提取特征。这里的关键在于图片结构上的平移不变性：一个小窗口无论移动到图片的哪一个位置，其内部的结构都是一模一样的，因此CNN可以实现参数共享。这就是CNN的精髓所在。<span class="citation">(<span class="citeproc-not-found" data-reference-id="深度学习笔记"><strong>???</strong></span>)</span></p>
+</blockquote>
+<p><strong>kernel</strong></p>
+<p><strong>卷积</strong>
+# Attention</p>
+<p>Attention机制，将有限的注意力集中在重点信息上，从而节省资源，快速获得最有效的信息。Attention 解决了 RNN 不能并行计算的问题。Attention机制每一步计算不依赖于上一步的计算结果，因此可以和CNN一样并行处理。</p>
+</div>
+<div id="transformer" class="section level1">
+<h1><span class="header-section-number">7</span> Transformer</h1>
+<blockquote>
+<p>Transformer 是Google Brain 2017的提出的一篇工作，它针对RNN的弱点进行重新设计，解决了RNN效率问题和传递中的缺陷等，在很多问题上都超过了RNN的表现。Transfromer的基本结构如下图所示，它是一个N进N出的结构，也就是说每个Transformer单元相当于一层的RNN层，接收一整个句子所有词作为输入，然后为句子中的每个词都做出一个输出。但是与RNN不同的是，Transformer能够同时处理句子中的所有词，并且任意两个词之间的操作距离都是1，这么一来就很好地解决了上面提到的RNN的效率问题和距离问题。</p>
+</blockquote>
+</div>
+<div id="参考文献" class="section level1">
+<h1><span class="header-section-number">8</span> 参考文献</h1>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
