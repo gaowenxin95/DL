@@ -12,6 +12,10 @@
 
 
 
+窗口，滑动
+feature map
+
+
 ## 卷积层
 
 详细推理参见[jianshu](https://www.jianshu.com/p/fe428f0b32c1)
