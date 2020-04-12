@@ -24,7 +24,7 @@
 <meta name="author" content="高文欣" />
 
 
-<meta name="date" content="2020-03-30" />
+<meta name="date" content="2020-04-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -203,7 +203,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">深度学习相关笔记</h1>
 <p class="author"><em>高文欣</em></p>
-<p class="date"><em>2020-03-30</em></p>
+<p class="date"><em>2020-04-11</em></p>
 </div>
 <div id="深度学习笔记" class="section level1">
 <h1><span class="header-section-number">1</span> 深度学习笔记</h1>
@@ -284,8 +284,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-14"><a href="#cb3-14"></a><span class="st">&#39;神经网络&#39; -&gt; &#39;超大型神经网络&#39;</span></span>
 <span id="cb3-15"><a href="#cb3-15"></a><span class="st">    }</span></span>
 <span id="cb3-16"><a href="#cb3-16"></a><span class="st">    &quot;</span>, <span class="dt">width=</span><span class="dv">600</span>)</span></code></pre></div>
-<div id="htmlwidget-c187522df15e0d563df4" style="width:600px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c187522df15e0d563df4">{"x":{"diagram":"\ndigraph RmarkDown {\ngraph [rankdir = LR]\nnode [shape=rectangle\n  style=filled\n  color=blue\n  fillcolor=salmon\n  fontcolor=white\n  arrowcolor=red\n  alpha=55\n  fontname = \"微软雅黑\"]\nedge [color = grey]\n\"感知机\" -> \"神经网络\"\n\"神经网络\" -> \"超大型神经网络\"\n    }\n    ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-ccfc0db9c11c493a48fd" style="width:600px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ccfc0db9c11c493a48fd">{"x":{"diagram":"\ndigraph RmarkDown {\ngraph [rankdir = LR]\nnode [shape=rectangle\n  style=filled\n  color=blue\n  fillcolor=salmon\n  fontcolor=white\n  arrowcolor=red\n  alpha=55\n  fontname = \"微软雅黑\"]\nedge [color = grey]\n\"感知机\" -> \"神经网络\"\n\"神经网络\" -> \"超大型神经网络\"\n    }\n    ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="神经元" class="section level2">
 <h2><span class="header-section-number">1.3</span> 神经元</h2>
@@ -500,6 +500,8 @@ g就是激活函数</p>
 <p>卷积神经网络中最主要的部分：卷积层、池化层、激活层的作用就是提取和匹配局部特征，将特征提取结果作为全连接层的输入从而得到最终的输出。其中的每一个卷积核都可以被视为一个特征过滤器，卷积神经网络通过依次的扫描输入并进行卷积运算提取得到哪些位置可能包含哪些特征的信息，随后这些特征位置信息被进一步的提取从而得到更高级、更抽象的特征。举个例子，如在识别图片中是否包含人时，卷积神经网络大致的作用原理如首先提取出某些位置是否是横线、竖线还是斜线以及颜色等特征，然后对这些特征进一步组合以得到哪些位置是否包含人脸、上肢、下肢等特征，通过提取到的这些特征，神经网络就可以做出决策得到图片中是否包含人的结果。</p>
 </blockquote>
 <p>卷积神经网络的最大作用就是可以自动学习并提取局部特征。对于计算机视觉中的图片而言，最微小的组成单元是一个个的像素点，然后局部组合就得到了线条和颜色块等信息特征</p>
+<p>窗口，滑动
+feature map</p>
 <div id="卷积层" class="section level2">
 <h2><span class="header-section-number">2.1</span> 卷积层</h2>
 <p>详细推理参见<a href="https://www.jianshu.com/p/fe428f0b32c1">jianshu</a></p>

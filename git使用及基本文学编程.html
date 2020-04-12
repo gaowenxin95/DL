@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>基本git使用及RMarkdown用法</title>
+  <meta name="description" content="基本git使用及RMarkdown用法" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="基本git使用及RMarkdown用法" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="基本git使用及RMarkdown用法" />
+  
+  
+  
+
+<meta name="author" content="苗蕾蕾" />
+
+
+<meta name="date" content="2020-04-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path=""><a href="#preparation"><i class="fa fa-check"></i><b>1</b> Preparation</a><ul>
+<li class="chapter" data-level="1.1" data-path=""><a href="#安装r及rstudio"><i class="fa fa-check"></i><b>1.1</b> 安装R及RStudio</a></li>
+<li class="chapter" data-level="1.2" data-path=""><a href="#安装git"><i class="fa fa-check"></i><b>1.2</b> 安装Git</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path=""><a href="#git基本使用"><i class="fa fa-check"></i><b>2</b> Git基本使用</a><ul>
+<li class="chapter" data-level="2.1" data-path=""><a href="#clone项目"><i class="fa fa-check"></i><b>2.1</b> Clone项目</a></li>
+<li class="chapter" data-level="2.2" data-path=""><a href="#基本git命令的使用"><i class="fa fa-check"></i><b>2.2</b> 基本Git命令的使用</a><ul>
+<li class="chapter" data-level="2.2.1" data-path=""><a href="#git-pull"><i class="fa fa-check"></i><b>2.2.1</b> git pull</a></li>
+<li class="chapter" data-level="2.2.2" data-path=""><a href="#git-add"><i class="fa fa-check"></i><b>2.2.2</b> git add</a></li>
+<li class="chapter" data-level="2.2.3" data-path=""><a href="#git-commit"><i class="fa fa-check"></i><b>2.2.3</b> git commit</a></li>
+<li class="chapter" data-level="2.2.4" data-path=""><a href="#git-push"><i class="fa fa-check"></i><b>2.2.4</b> git push</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path=""><a href="#rmarkdown使用"><i class="fa fa-check"></i><b>3</b> RMarkdown使用</a><ul>
+<li class="chapter" data-level="3.1" data-path=""><a href="#rmarkdown基本用法"><i class="fa fa-check"></i><b>3.1</b> RMarkdown基本用法</a><ul>
+<li class="chapter" data-level="3.1.1" data-path=""><a href="#引用"><i class="fa fa-check"></i><b>3.1.1</b> 引用</a></li>
+<li class="chapter" data-level="3.1.2" data-path=""><a href="#加粗部分信息"><i class="fa fa-check"></i><b>3.1.2</b> 加粗部分信息</a></li>
+<li class="chapter" data-level="3.1.3" data-path=""><a href="#文字变为斜体"><i class="fa fa-check"></i><b>3.1.3</b> 文字变为斜体</a></li>
+<li class="chapter" data-level="3.1.4" data-path=""><a href="#给上传文件路径"><i class="fa fa-check"></i><b>3.1.4</b> 给上传文件路径</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path=""><a href="#rmarkdown文献综述"><i class="fa fa-check"></i><b>3.2</b> RMarkdown文献综述</a><ul>
+<li class="chapter" data-level="3.2.1" data-path=""><a href="#准备工作"><i class="fa fa-check"></i><b>3.2.1</b> 准备工作</a></li>
+<li class="chapter" data-level="3.2.2" data-path=""><a href="#rmd文献综述"><i class="fa fa-check"></i><b>3.2.2</b> Rmd文献综述</a></li>
+<li class="chapter" data-level="3.2.3" data-path=""><a href="#文献综述提交"><i class="fa fa-check"></i><b>3.2.3</b> 文献综述提交</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">基本git使用及RMarkdown用法</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">基本git使用及RMarkdown用法</h1>
+<p class="author"><em>苗蕾蕾</em></p>
+<p class="date"><em>2020-04-12</em></p>
+</div>
+<div id="preparation" class="section level1">
+<h1><span class="header-section-number">1</span> Preparation</h1>
+<p>安装R、RStudio、Git软件</p>
+<div id="安装r及rstudio" class="section level2">
+<h2><span class="header-section-number">1.1</span> 安装R及RStudio</h2>
+<p>R是底层软件，RStudio是使用它比较方便的软件，界面友好。</p>
+<ul>
+<li>安装R</li>
+</ul>
+<p>1.打开网址 <code>The Comprehensive R Archive Network</code></p>
+<p>2.选择 <code>Download R for Windows</code></p>
+<p>3.选择 <code>install R for the first time</code></p>
+<p>4.选择 <code>Download R 3.x.x for Windows</code></p>
+<p>5.然后点开对应的<code>.exe</code>文件，安装好</p>
+<ul>
+<li>RStudio</li>
+</ul>
+<p>1.打开网址 <a href="">RStudio – Open source and enterprise-ready professional software for R</a></p>
+<p>2.下载 <em>RStudio</em>，<em>Shiny</em>和<em>R Packages</em>两个暂时不用管</p>
+<p>3.选择Free的第一个 <a href="">Download RStudio – RStudio</a></p>
+<p>4.然后点开对应的<code>.exe</code>文件，安装好。</p>
+</div>
+<div id="安装git" class="section level2">
+<h2><span class="header-section-number">1.2</span> 安装Git</h2>
+<ul>
+<li><p>打开官网地址 <a href="">https://git-scm.com/download/win</a></p></li>
+<li><p>选择适合电脑版本的git并下载</p></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figure/1.jpg&quot;</span>)</span></code></pre></div>
+<p><img src="figure/1.jpg" width="166" /></p>
+<ul>
+<li>注意安装时设置Git可以被第三方软件调用，为后期RStudio使用(如果你们看不到图片，就注意一下next时不选择默认的<code>use git from git bash only</code>,选第二个<code>git from the command line......</code>)</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figure/2.jpg&quot;</span>)</span></code></pre></div>
+<p><img src="figure/2.jpg" width="132" /></p>
+</div>
+</div>
+<div id="git基本使用" class="section level1">
+<h1><span class="header-section-number">2</span> Git基本使用</h1>
+<div id="clone项目" class="section level2">
+<h2><span class="header-section-number">2.1</span> Clone项目</h2>
+<p>clone项目相当于将Github上的项目（usd-dea里的所有文件夹及文件）复制到本地，这样后续我们可以直接运用git、RStudio完成本地上传文件(push)、从Github更新文件(pull)以保证本地与远程(Github)文件的一致。</p>
+<ul>
+<li><strong>打开RStudio，clone你的第一个项目(usd-dea)</strong></li>
+</ul>
+<p><code>file--&gt;New Project--&gt;Version Control--&gt;Git</code></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figure/3.jpg&quot;</span>)</span></code></pre></div>
+<p><img src="figure/3.jpg" width="398" /></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figure/4.jpg&quot;</span>)</span></code></pre></div>
+<p><img src="figure/4.jpg" width="403" /></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figure/5.jpg&quot;</span>)</span></code></pre></div>
+<p><img src="figure/5.jpg" width="398" /></p>
+<ul>
+<li>github项目地址:圆圈里是地址，点方框复制，如下图</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figure/6.jpg&quot;</span>)</span></code></pre></div>
+<p><img src="figure/6.jpg" width="432" /></p>
+<ul>
+<li>然后等着，成功之后</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figure/7.jpg&quot;</span>)</span></code></pre></div>
+<p><img src="figure/7.jpg" width="405" /></p>
+<p><strong>以上，clone项目完成</strong></p>
+</div>
+<div id="基本git命令的使用" class="section level2">
+<h2><span class="header-section-number">2.2</span> 基本Git命令的使用</h2>
+<blockquote>
+<p>git pull, git add, git commit, git push</p>
+</blockquote>
+<p>这是我们最常用到的命令，建议熟练使用。
+为了更好理解git命令，这里举例介绍文件更新和上传的方法一：</p>
+<div id="git-pull" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> git pull</h3>
+<ul>
+<li>目的:将Github上别人提交后的文件更新到本地，保证本地与远程文件的一致</li>
+<li>操作:鼠标定位到本地储存项目(usd-dea)的地址——即上面clone项目时自己选择的地址，右键<code>git bash here</code>
+命令行输入：<code>git pull origin master</code></li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figure/8.jpg&quot;</span>)</span></code></pre></div>
+<p><img src="figure/8.jpg" width="415" /></p>
+<ul>
+<li>注意：在add 和 push 文件前都要进行git pull操作，否则容易发生错误。
+如果实在怕错，可以在<strong>添加文件前</strong>每次都进行pull操作</li>
+</ul>
+</div>
+<div id="git-add" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> git add</h3>
+<ul>
+<li><p>目的：添加<strong>本地文件</strong>到缓存区，为接下来push缓存区文件到github(远程)准备</p></li>
+<li><p>操作：在想要(在github)上上传文件夹的<strong>本地文件夹</strong>目录下方，添加文件，然后将鼠标定位到本地储存项目(usd-dea)的地址，同样<code>git bash here</code>，或者直接在前一步基础上进行</p>
+<p><code>命令行输入：git add .</code></p></li>
+</ul>
+</div>
+<div id="git-commit" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> git commit</h3>
+<ul>
+<li>目的：add 文件后，commit想描述的信息，比如想关联某一issue，可以直接#该issue</li>
+<li>操作：附注改文件的XXX信息，并关联第54个<em>issue</em>:<code>git commit -m "XXXX #54"</code></li>
+</ul>
+</div>
+<div id="git-push" class="section level3">
+<h3><span class="header-section-number">2.2.4</span> git push</h3>
+<ul>
+<li>目的:将add在缓存区的文件push到远程Github上</li>
+<li>操作:命令行输入：<code>git push origin master</code></li>
+</ul>
+<p>如果还有不明白的地方，可以参考：</p>
+<p><a href="">https://www.cnblogs.com/zeo-to-one/p/8367801.html</a></p>
+<p><a href="">https://jiaxiangbu.github.io/learn_git/output/git-github-gitlab-learning-notes.html</a></p>
+<p><a href="">https://my.oschina.net/u/3828037/blog/1838718</a></p>
+</div>
+</div>
+</div>
+<div id="rmarkdown使用" class="section level1">
+<h1><span class="header-section-number">3</span> RMarkdown使用</h1>
+<p>主要包括RMarkdown基本用法、文献综述编写</p>
+<div id="rmarkdown基本用法" class="section level2">
+<h2><span class="header-section-number">3.1</span> RMarkdown基本用法</h2>
+<div id="引用" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> 引用</h3>
+<p>当我们想引用文献中的某段话时，单引号+这段话：
+<code>&gt;XXXXXXXX</code></p>
+</div>
+<div id="加粗部分信息" class="section level3">
+<h3><span class="header-section-number">3.1.2</span> 加粗部分信息</h3>
+<p><code>**XXXXXX**</code></p>
+</div>
+<div id="文字变为斜体" class="section level3">
+<h3><span class="header-section-number">3.1.3</span> 文字变为斜体</h3>
+<p><code>*XXXXXX*</code></p>
+</div>
+<div id="给上传文件路径" class="section level3">
+<h3><span class="header-section-number">3.1.4</span> 给上传文件路径</h3>
+<ul>
+<li>方法一:找到上传文件的目录(下图画圈那里)，复制到你想评论issue的comment</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figure/9.jpg&quot;</span>)</span></code></pre></div>
+<p><img src="figure/9.jpg" width="324" /></p>
+<ul>
+<li>方法二:<code>[该文件名称](文件网址)</code></li>
+</ul>
+</div>
+</div>
+<div id="rmarkdown文献综述" class="section level2">
+<h2><span class="header-section-number">3.2</span> RMarkdown文献综述</h2>
+<div id="准备工作" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> 准备工作</h3>
+<ul>
+<li><strong>改镜像</strong>：安装Rmarkdown之前先把镜像改成清华的，不然容易被墙
+<code>tools--&gt;global options--&gt;packages--&gt;change</code></li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figure/10.jpg&quot;</span>)</span></code></pre></div>
+<p><img src="figure/10.jpg" width="412" /></p>
+<ul>
+<li><p><strong>安装包</strong>：安装某些包，用来读取文件</p>
+<p>安装包用命令在console里面：<code>install.packages("包名")</code></p>
+<p>调用包时：<code>library(包名)</code></p></li>
+<li><p><strong>编辑数学公式</strong>：mathpix官网下载后，用mathpix截图需要的公式粘贴后，复制用双$框柱的内容到Rmd文件里即可，很简单，不会使可以问我，也可以看一下学长的这篇文章
+<a href="">https://jiaxiangbu.github.io/awesome-application/learning_notes.html</a></p></li>
+<li><p><strong>添加图片</strong>：如果综述需要图片，先将图片保存到本地项目的figure文件夹下，然后在RStudio中<code>graphics("图片目录")</code>调用，如下图</p></li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figure/11.jpg&quot;</span>)</span></code></pre></div>
+<p><img src="figure/11.jpg" width="280" /></p>
+<ul>
+<li><p><strong>bibtex文件</strong>：</p>
+<p>1.下载bibtex：书写Rmd文献综述前，要找到参考文献的bibtex，一般paper做citizatio时可以直接下载bibtex(谷歌学术可下载)，比如这个paper我要下载为bibtex格式</p></li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figure/12.jpg&quot;</span>)</span></code></pre></div>
+<p><img src="figure/12.jpg" width="420" /></p>
+<p>2.保存为bib文件：本地新建文本文档，把框住的部分复制进去，并另存为XXX.bib(文档拓展名.txt改为.bib)，<strong>编码形式也改为UTF-8</strong></p>
+<p><strong>注意</strong>：</p>
+<p>1.为了防止R读取文件出现错误，一定要注意最好英文命名bib文件，不要有空格和特殊字符，同时编码形式改为UTF-8</p>
+<p>2.一篇文献综述可能包含几篇文献，可以把这几篇文献的bibtex放到一个bib文件里，这样方便调用</p>
+</div>
+<div id="rmd文献综述" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Rmd文献综述</h3>
+<p><strong>1.新建Rmd文档</strong></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figure/13.jpg&quot;</span>)</span></code></pre></div>
+<p><img src="figure/13.jpg" width="420" /></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figure/14.jpg&quot;</span>)</span></code></pre></div>
+<p><img src="figure/14.jpg" width="300" /></p>
+<ul>
+<li>默认的output是html文件，要改成github的，如果你需要pdf版本的，也可改成pdf</li>
+<li>bibliography后面的是bibtex所在的文件目录，你下载并整理好bibtex之后，把它放到<strong>本地项目的refs</strong>里，refs后面是bibtex的名字</li>
+</ul>
+<p><strong>2.书写文献综述</strong></p>
+<p>`—</p>
+<p>title: “文献综述”</p>
+<p>author: “苗蕾蕾”</p>
+<p>output: github_document</p>
+<p>bibliography: ../refs/add.bib</p>
+<hr />
+<p>{r,include = FALSE}</p>
+<p>knitr::opts_chunk$set(warning = FALSE , message = FALSE)`</p>
+<p><code>@XXX 说明借鉴的地方</code></p>
+<p><code>或者[@XXX] 说明借鉴的地方</code></p>
+<p><code># 参考文献 {-}</code></p>
+<ul>
+<li><code>@XXX</code>就是bibtex里<code>@article{</code><strong>后面的内容</strong>，复制粘贴到这里就好了</li>
+<li><code>@XXX借鉴的地方</code> 表示XXX认为……</li>
+<li><code>[@XXX]借鉴的地方</code> 表示……(XXX)</li>
+</ul>
+<p><strong>3.knit出md文件或者其他形式的文件</strong></p>
+<p>knit出的结果会自动保存在本地项目的output文件夹中，且与你命名的Rmd文件名称相同</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figure/15.jpg&quot;</span>)</span></code></pre></div>
+<p><img src="figure/15.jpg" width="369" /></p>
+</div>
+<div id="文献综述提交" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> 文献综述提交</h3>
+<ul>
+<li><p>方法一：见2中git 基本命令的使用，按顺序先pull、再add这些文件、commit描述信息、push到github上。</p></li>
+<li><p>方法二：直接在RStudio中操作：</p></li>
+</ul>
+<p>1.做的改动全部选上，或者选择你要选的</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figure/16.jpg&quot;</span>)</span></code></pre></div>
+<p><img src="figure/16.jpg" width="409" /></p>
+<p>2.commit</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figure/17.jpg&quot;</span>)</span></code></pre></div>
+<p><img src="figure/17.jpg" width="407" /></p>
+<p>3.增加commit的信息，一般就是你修改了什么</p>
+<p>4.pull</p>
+<p>5.push</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;./figure/18.jpg&quot;</span>)</span></code></pre></div>
+<p><img src="figure/18.jpg" width="422" /></p>
+<ul>
+<li>方法三：直接在github相应的文件夹下upload文件</li>
+</ul>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+</body>
+
+</html>
